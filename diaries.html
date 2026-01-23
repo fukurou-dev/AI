@@ -118,7 +118,7 @@
 
       const container = document.getElementById('diariesList');
       try {
-        const response = await fetch('./data/diaries.json');
+        const response = await fetch('./deta/diaries.json');
         const diaries = await response.json();
         
         container.innerHTML = diaries.map(entry => `

@@ -27,6 +27,7 @@
   border:1px solid var(--accent);
   background:#020617;
   color:var(--accent);
+  transition:all 0.2s ease;
   cursor:pointer;
 }
 

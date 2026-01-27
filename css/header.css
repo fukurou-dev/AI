@@ -45,16 +45,15 @@ nav ul{
 }
 
 .logout-btn {
-  margin-left: 1rem;
-  padding: 0.4rem 0.8rem;
-  font-size: 0.75rem;
   font-family: 'DotGothic16', sans-serif;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius:3px;
+  border: 1px solid #ff4d4d;
   background: transparent;
   color: #ff4d4d;
-  border: 1px solid #ff4d4d;
-  cursor: pointer;
+  cursor:pointer;
   transition: all 0.2s ease;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 

@@ -1,10 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const lines = [
     "> SYSTEM BOOT SEQUENCE INITIATED",
-    "> AUTHENTICATION CHECK .... OK",
+    "> MEMORY CHECK ............... OK",
+    "> AUTHENTICATION CHECK ....... OK",
+    "> USER CLEARANCE VERIFIED",
     "> SEA-EROSION MONITOR : ONLINE",
+    "> SENSOR ARRAY SYNC .......... OK",
+    "> ARCHIVE INTEGRITY CHECK",
+    "> DATA FRAGMENT RECOVERY",
     "> DATA SYNC ................. OK",
+    "> CROSS-REFERENCE ANALYSIS",
     "> ACCESS LEVEL : INTERNAL",
+    "> SESSION LOGGING ENABLED",
     "> ACCESS GRANTED"
   ];
 
@@ -34,7 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updatePercent(target) {
     const interval = setInterval(() => {
-      percent += Math.floor(Math.random() * 6) + 2;
+      let step;
+
+      if (percent < 60) {
+        step = Math.floor(Math.random() * 6) + 4;
+      } else if (percent < 85) {
+        step = Math.floor(Math.random() * 3) + 2;
+      } else {
+        step = 1;
+      }
+
+      percent += step;
 
       if (percent >= target) {
         percent = target;
@@ -43,10 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       percentTarget.textContent = percent + "%";
 
-      if (percent >= 95 && percent < 100) {
+      if (percent >= 98 && percent < 100) {
         triggerGlitch();
       }
-    }, 80);
+    }, 120);
   }
 
   function printLine() {
@@ -54,12 +72,16 @@ document.addEventListener("DOMContentLoaded", () => {
       textTarget.textContent += lines[index] + "\n";
       updatePercent(Math.floor(((index + 1) / lines.length) * 100));
       index++;
-      setTimeout(printLine, 520);
+      setTimeout(printLine, 600);
     } else {
-      percentTarget.textContent = "100%";
+      percentTarget.textContent = "99%";
+
       setTimeout(() => {
-        screen.classList.add("fade-out");
-      }, 600);
+        percentTarget.textContent = "100%";
+        setTimeout(() => {
+          screen.classList.add("fade-out");
+        }, 600);
+      }, 1200);
     }
   }
 
